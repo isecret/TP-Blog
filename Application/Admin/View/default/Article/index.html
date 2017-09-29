@@ -1,0 +1,42 @@
+<include file="Default/layouts/_header" />
+
+<div class="main-content">
+		<div class="content-title">写文章</div>
+		<a class="btn-block" href="{:U('Article/edit')}">写文章/页面</a>
+		<div class="i-br"></div>
+
+		<div class="content-title">文章列表</div>
+		<div class="table-wrap">
+			<table width="768" class="table">
+				<tr>
+					<th>文章信息</th>
+					<th width="14%">分类</th>
+					<th width="16%">发表日期</th>
+					<th width="14%">修改时间</th>
+					<th width="14%">操作</th>
+				</tr>
+				<foreach name="articles" item="article">
+					<tr>
+						<td><a href="#" target="_blank">{$article.title}</a></td>
+						<td class="text-center">{$article.category}</td>
+						<td class="text-center">{$article.created_at|date="Y-m-d", ###}</td>
+						<td class="text-center">{$article.updated_at|date="Y-m-d", ###}</td>
+						<td class="text-center">
+							<a href="{:U('Article/edit/id/'.$article['id'])}">编辑</a>
+							<a class="rmArticle" href="#" data-id="{$article.id}">删除</a>
+						</td>
+					</tr>
+				</foreach>
+				<empty name="articles">
+					<tr>
+						<td colspan="5" class="text-center" style="height: 60px;">没有找到相关文章喔~</td>
+					</tr>
+				</empty>
+			</table>
+		</div>
+		<div class="pagenav">
+			{$page}
+		</div>
+	</div>
+
+<include file="Default/layouts/_footer" />

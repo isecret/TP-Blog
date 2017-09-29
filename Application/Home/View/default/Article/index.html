@@ -1,0 +1,28 @@
+<include file="Default/layouts/_head" />
+<body>
+	<main>
+		<include file="Default/layouts/_header" />
+		<content>
+			<article>
+				<div class="article-title-container">
+					<h1 class="article-title">
+						<span>{$article.title}</span>
+					</h1>
+					<span class="article-info">{$article.created_at|date="F d, Y", ###} · <a href="?a=category&name={$article.category}">{$article.category}</a></span>
+				</div>
+				<div class="article-content-container">
+					{$article.content}
+					<span style="font-size: 14px; float: right;">Finally edited in {$article.updated_at|date="F d, Y", ###} </span>
+				</div>
+			</article>
+			<div class="pagination">
+				<present name="nears['prev']">
+					<span class="prev"><i class="fa fa-angle-left"></i> <a href="{:U('Article/index', ['id' => $nears['prev']['id']])}">{$nears.prev.title}</a></span>
+				</present>
+				<present name="nears['next']">
+					<span class="next"><a href="{:U('Article/index', ['id' => $nears['next']['id']])}">{$nears.next.title}</a> <i class="fa fa-angle-right"></i></span>
+				</present>
+				<div class="clear"></div>
+			</div>
+		</content>
+    <include file="Default/layouts/_footer" />

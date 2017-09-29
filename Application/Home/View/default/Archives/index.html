@@ -1,0 +1,31 @@
+<include file="Default/layouts/_head" />
+<body>
+	<main>
+		<include file="Default/layouts/_header" />
+		<content>
+			<article>
+				<div class="article-title-container">
+					<h1 class="article-title">
+						<span>{$title}</span>
+					</h1>
+				</div>
+				<div class="article-content-container">
+					<ul class="archives">
+						<foreach name="years" item="year">
+							<li class="archives-year">{$year.year}</li>
+							<foreach name="months" item="month">
+								<if condition="$year['year'] eq $month['year']">
+									<li class="archives-month">{$month.month}</li>
+									<foreach name="articles" item="article">
+										<if condition="date('m', $article['created_at']) eq $month['month'] && date('Y', $article['created_at']) eq $year['year']">
+											<li class="archives-article"><a href="{:U('Article/index', ['id' => $article['id']])}">{$article.title} <span class="archives-time">({$article.created_at|date="F d, Y", ###})</span></a></li>
+										</if>
+									</foreach>
+								</if>
+							</foreach>
+						</foreach>
+					</ul>
+				</div>
+			</article>
+		</content>
+    <include file="Default/layouts/_footer" />

@@ -1,0 +1,59 @@
+<include file="Default/layouts/_header" />
+
+<div class="main-content">
+	<div class="content-title">增加/修改友链</div>
+	<form id="saveLinkForm">
+		<present name="link">
+			<input type="hidden" name="id" value="{$link.id}">
+		</present>
+		<input class="input-line" type="text" name="name" placeholder="站点名称" 
+			<present name="link">
+				value="{$link.name}"
+			</present>
+		>
+		<input class="input-line" type="text" name="url" placeholder="站点URL" 
+			<present name="link">
+				value="{$link.url}"
+			</present>
+		>
+		<input class="input-line" type="text" name="avatar" placeholder="站点头像" 
+			<present name="link">
+				value="{$link.avatar}"
+			</present>
+		>
+		<div class="btn-block" id="saveLink">保存</div>
+		<present name="link">
+			<a href="{:U('Link/index')}" style="border: none"><div class="btn-block">取消</div></a>
+		</present>
+	</form>
+	<div class="i-br"></div>
+	<div class="content-title">友链列表</div>
+	<div class="table-wrap">
+		<table width="768" class="table">
+			<tr>
+				<th width="14%">站点名</th>
+				<th width="14%">站点地址</th>
+				<th width="16%">头像地址</th>
+				<th width="14%">操作</th>
+			</tr>
+			<volist name="links" id="lnk">
+				<tr>
+					<td><a href="#" target="_blank">{$lnk.name}</a></td>
+					<td class="text-center">{$lnk.url}</td>
+					<td class="text-center">{$lnk.avatar}</td>
+					<td class="text-center">
+						<a class="editlink" href="{:U('Link/index', ['id' => $lnk['id']])}">编辑</a>
+						<a class="rmlink" href="#">删除</a>
+					</td>
+				</tr>
+			</volist>
+			<empty name="links">
+				<tr>
+					<td colspan="4" class="text-center" style="height: 60px;">你还没有朋友吗？</td>
+				</tr>
+			</empty>
+		</table>
+	</div>
+</div>
+
+<include file="Default/layouts/_footer" />

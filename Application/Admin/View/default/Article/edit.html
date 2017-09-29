@@ -1,0 +1,30 @@
+<include file="Default/layouts/_header" />
+
+<form class="main-content" id="articleForm">
+	{/* 判断 article 是否存在 不存在则不输出隐藏 id */}
+	<present name="article">
+		<input type="hidden" name="id" value="{$article.id}">
+	</present>
+	{/* 判断 article 结束 */}
+	<div class="content-title">文章/页面</div>
+	<input class="input-line" name="title" type="text" placeholder="文章标题" 
+		<present name="article">
+			value="{$article.title}"
+		</present>
+	/>
+	<textarea class="content-textarea" name="description" rows=3 placeholder="文章简介，不填则自动截取文章内容前100字符" ><present name="article">{$article.description}</present></textarea>
+	<div class="i-br"></div>
+	<a href="https://upload.isecret.vip/" target="__blank" style="border: none;"><div class="btn-block">上传附件</div></a>
+	<div class="content-title">文章内容</div>
+	<textarea class="content-textarea" name="content" rows=20 placeholder="Happy Coding : )"><present name="article">{$article.content}</present></textarea>
+	<input class="input-line" name="category" type="text" placeholder="文章分类，不填则默认" 
+		<present name="article">
+			value="{$article.category}"
+		</present>
+	/>
+	<input name="isPage" type="checkbox"><label>创建页面(首页分类将不展示)</label>
+	<div class="i-br"></div>
+	<div class="btn-block" id="saveArticle">保存文章</div>
+</form>
+
+<include file="Default/layouts/_footer" />
