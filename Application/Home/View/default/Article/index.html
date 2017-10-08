@@ -24,5 +24,19 @@
 				</present>
 				<div class="clear"></div>
 			</div>
+			<div id="comment"></div>
 		</content>
+		<script src="__PUBLIC__/js/gitment.browser.min.js"></script>
+		<script>
+		var gitment = new Gitment({
+		  id: window.location.pathname.replace(/(\/$)/g, ''),
+		  owner: '{:C("GITHUB_ID")}',
+		  repo: '{:C("GITHUB_REPO")}',
+		  oauth: {
+		    client_id: '{:C("GITHUB_CLIENT_ID")}',
+		    client_secret: '{:C("GITHUB_CLICENT_SECRET")}',
+		  },
+		});
+		gitment.render('comment');
+		</script>
     <include file="Default/layouts/_footer" />

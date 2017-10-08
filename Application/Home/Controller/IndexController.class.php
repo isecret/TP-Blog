@@ -6,7 +6,7 @@ use Think\Page;
 class IndexController extends BaseController 
 {
 	
-    public function index(){
+    public function index() {
         // 实例化 Article 对象
     	$Articles = D('Articles');
         // 查询文章总数
