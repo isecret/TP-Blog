@@ -15,7 +15,7 @@
 			return dialog.tips('密码不能为空');
 		}
 
-		$.post('login', {
+		$.post(url, {
 			'email': email,
 			'password': password
 		}, function (result) {

@@ -12,6 +12,33 @@ class ArticlesModel extends Model
 		['title', 'require', '标题不能为空'],
 		['content', 'require', '文章内容内容不能为空']
 	];
+	
+	/**
+	 * @param  $where       string      位置
+	 * @param  $condition   mixed       条件
+	 * @return N/A          intger      通过特定条件查询的总数
+	 */
+	public function countsWhere($where, $condition)
+	{
+		return $this->where($where, $condition)
+					->count();
+	}
+
+	/**
+	 * 通过条件获取文章（带分页）
+	 * 
+	 * @param  $where        string      位置
+	 * @param  $condition    mixed       条件
+	 * @param  $page         intval      页数
+	 * @return N/A           array       通过特定条件查询的内容
+	 */
+	public function getsWhere($where, $condition, $page)
+	{
+		return $this->where($where, $condition)
+					->order('created_at desc')
+					->page($page, C('PAGE_NUM'))
+					->select();
+	}
 
 	/**
 	 * 全部文章不分页

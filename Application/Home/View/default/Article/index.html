@@ -8,7 +8,7 @@
 					<h1 class="article-title">
 						<span>{$article.title}</span>
 					</h1>
-					<span class="article-info">{$article.created_at|date="F d, Y", ###} · <a href="?a=category&name={$article.category}">{$article.category}</a></span>
+					<span class="article-info">{$article.created_at|date="F d, Y", ###} · <a href="{:U('Category/index', ['name' => $article['category']])}">{$article.category}</a></span>
 				</div>
 				<div class="article-content-container">
 					{$article.content}

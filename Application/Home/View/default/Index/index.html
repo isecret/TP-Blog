@@ -3,8 +3,8 @@
 	<main>
 		<include file="Default/layouts/_header" />
 		<content>
-			<present name="categoryTitle">
-				<span class="category-title">关于 {$categoryTitle} 的分类</span>
+			<present name="category">
+				<span class="category-title">关于 {$category} 的分类</span>
 			</present>
 			<foreach name="articles" item="article">
 				<article>
@@ -12,7 +12,7 @@
 						<h1 class="article-title">
 							<a href="{:U('Article/index', ['id' => $article['id']])}">{$article.title}</a>
 						</h1>
-						<span class="article-info">{$article.created_at|date="F d, Y", ###} · <a href="#">{$article.category}</a></span>
+						<span class="article-info">{$article.created_at|date="F d, Y", ###} · <a href="{:U('Category/index', ['name' => $article['category']])}">{$article.category}</a></span>
 					</div>
 					<div class="article-content-container">
 						<span>{$article.description}...</span>

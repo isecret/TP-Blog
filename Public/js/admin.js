@@ -20,7 +20,7 @@
 	        postData[this.name] = this.value;
 	    });
 
-	    $.post('/admin.php/Article/edit.html', postData, function (res) {
+	    $.post(url, postData, function (res) {
 	    	dialog.tips(res.msg, function () {
 	    		if (res.status == 1) {
 	    			window.location.href = res.data.url;
@@ -33,7 +33,7 @@
 	 * 文章删除事件
 	 */
 	$('.rmArticle').click(function () {
-		$.post('/admin.php/Article/remove.html', {id: $(this).data('id')}, function (res) {
+		$.post(url, {id: $(this).data('id')}, function (res) {
 			dialog.tips(res.msg, function () {
 				if (res.status == 1) {
 					window.location.reload();
@@ -46,7 +46,7 @@
 	 * 保存个人资料
 	 */
 	$('#saveAbout').click(function () {
-		$.post('/admin.php/Resume/index.html', {
+		$.post(url, {
 			content: $('textarea[name="content"]').val()
 		}, function (res) {
 			dialog.tips(res.msg, function() {
@@ -67,7 +67,7 @@
 	        postData[this.name] = this.value;
 	    });
 
-	    $.post('/admin.php/Link/index.html', postData, function (res) {
+	    $.post(url, postData, function (res) {
 	    	dialog.tips(res.msg, function () {
 	    		if (res.status == 1) {
 	    			window.location.href = res.data.url;
