@@ -58,6 +58,7 @@ $ git clone https://github.com/isecret/TP-Blog.git
 * 2017 年 10 月 9 日：
   * 修复模版引入问题
   * 编写安装文档
+  * 调整 **gitment** 本地化样式
 * 2017 年 10 月 8 日：
   * 完成文章分类
   * 修改 ``URL模式`` 为 **兼容模式** 并修复其异步请求的 URL 地址
