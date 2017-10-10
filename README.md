@@ -2,6 +2,8 @@
 
 这是一个基于 ThinkPHP 3.2.3 开发的一套博客程序，使用了大量框架特性。使用了大量的 PHP7 的新语法，在 PHP7 以下版本可能出现一些问题，同时，打包了 SQL 数据库用于学习。
 
+[在线 Demo](https://blog.isecret.pw)
+
 项目持续更新中，关于更新日志，[请摸我](#日志)
 
 有任何问题或建议，请在 Issue 中提出。
@@ -16,9 +18,13 @@
 $ git clone https://github.com/isecret/TP-Blog.git
 ```
 
-或直接下载该项目，导入 ``Blog.sql`` 到数据库后然后进行配置。
+或直接下载该项目，使用 **composer** 更新。
 
+```bash
+$ composer install
+```
 
+然后导入 ``Blog.sql`` 到数据库。
 
 ## 配置
 
@@ -55,9 +61,13 @@ $ git clone https://github.com/isecret/TP-Blog.git
 
 ## 日志
 
+* 2017 年 10 月 10 日：
+  * 本地化 **gitment** 样式
+  * 优化 README.md 并说明 ``composer`` 更新
 * 2017 年 10 月 9 日：
   * 修复模版引入问题
   * 编写安装文档
+  * 删除 ``\vendor``、``\composer.lock``
   * 调整 **gitment** 本地化样式
 * 2017 年 10 月 8 日：
   * 完成文章分类

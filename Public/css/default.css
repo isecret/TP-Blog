@@ -416,7 +416,7 @@ a.gitment-editor-footer-tip:hover {
 
 .gitment-editor-submit:hover,
 .gitment-comments-init-btn:hover {
-  background-color: #00ACC1;
+  background-color: #555;
 }
 
 .gitment-comments-init-btn:disabled,
