@@ -61,6 +61,9 @@ $ composer install
 
 ## 日志
 
+* 2017 年 10 月 12 日：
+  * 修改默认模版文件 ``Application/../View/default`` 为 ``Application/../View/Default`` 并了解了 *Mac OS X* 文件系统的坑（不区分大小写）
+  * 删除了一些缓存文件和日志文件
 * 2017 年 10 月 10 日：
   * 本地化 **gitment** 样式
   * 优化 README.md 并说明 ``composer`` 更新
